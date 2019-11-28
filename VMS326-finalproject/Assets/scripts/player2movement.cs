@@ -28,7 +28,7 @@ public class player2movement : MonoBehaviour
         }
         
         //check for death condition
-        if(transform.position.y < -10) {
+        if(transform.position.y < -15) {
             p2dead = 1;
         }
       
