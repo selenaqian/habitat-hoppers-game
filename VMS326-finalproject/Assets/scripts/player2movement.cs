@@ -5,6 +5,7 @@ using UnityEngine;
 public class player2movement : MonoBehaviour
 {
     public static int p2dead;
+    private int numjumps = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,10 @@ public class player2movement : MonoBehaviour
         {
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 0), ForceMode2D.Force);
         }
-        if (Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("up") && numjumps<2)
         {
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+            numjumps++;
         }
         
         //check for death condition
@@ -32,5 +34,10 @@ public class player2movement : MonoBehaviour
             p2dead = 1;
         }
       
+    }
+    
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        numjumps=0;
     }
 }
