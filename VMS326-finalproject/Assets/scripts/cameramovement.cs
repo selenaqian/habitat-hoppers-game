@@ -11,18 +11,18 @@ public class cameramovement : MonoBehaviour
     public Transform player2;
     
     //sets when to move camera
-    public float xboundright = 2.0f;
-    public float xboundleft = 3.0f;
+    public float xboundright = 4.0f;
+    //public float xboundleft = 6.0f;
     public float yboundtop = 0.5f;
-    public float yboundbottom = 1.5f;
+    //public float yboundbottom = 1.5f;
 
     //sets how far to move camera --> lower = move further
     public float xmotion = 1.0f;
-    public float ymotion = 1.0f;
+    public float ymotion = 0.5f;
     
     //position and speed for lerp
     Vector3 moveTo;
-    public float speed = 0.04f;
+    public float speed = 0.015f;
     
     Vector3 temp = Vector3.zero;
     
@@ -49,22 +49,29 @@ public class cameramovement : MonoBehaviour
         float dy2 = player2.position.y - transform.position.y; //y-distance between player2 and camera
         
         //if x-distance too large on the right - dx > xbound - then move camera
-        if (dx1 > xboundright)
+        if (dx1 > xboundright || dx2 > xboundright)
         {
             //Debug.Log(dx1);
-            temp.x = dx1 - xmotion;
+            if (dx1 > xboundright)
+            {
+                temp.x = dx1 - xmotion;
+            }
+            else if (dx2 > xboundright)
+            {
+                temp.x = dx2 - xmotion;
+            }
         }
         else if (dx1 < -xboundright)
         {
             temp.x = dx1 + xboundright;
         }
+        
         //if camera already in place where can see a little ahead in map, reset temp to 0
         /*if (dx1 < -xboundleft)
         {
             //Debug.Log("stopping");
             temp.x = 0;
         }*/
-        //check if other player is still on screen - if not, drag them over also
         
         //if y-distance too large going up - dy > ybound - then zoom out if other one is too low, move if both going up
         if (dy1 > yboundtop)
@@ -74,7 +81,7 @@ public class cameramovement : MonoBehaviour
         }
         else if (dy1 < -yboundtop)
         {
-            Debug.Log(dy1);
+            //Debug.Log(dy1);
             temp.y = dy1 + ymotion;
         }
         //if camera already in place where can see a little ahead in map, reset temp to 0
@@ -88,5 +95,13 @@ public class cameramovement : MonoBehaviour
         moveTo = transform.position + temp;
         //lerp
         transform.position = Vector3.Lerp(transform.position, moveTo, speed);
+        
+        //check if players are still on screen - if not, drag them over also
+        if (dx2 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize)
+        {
+            Debug.Log("camera pos: " + transform.position.x + " player2 pos: " + player2.position.x + " width: " + Screen.width/Screen.height * Camera.main.orthographicSize);
+            Debug.Log("player2 offscreen left");
+            player2.GetComponent<Rigidbody2D>().AddForce(new Vector2(3, 0), ForceMode2D.Impulse);
+        }
     }
 }

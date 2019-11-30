@@ -9368,12 +9368,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 1344525316}
   player2: {fileID: 1666576725}
-  xboundright: 2
-  xboundleft: 3
+  xboundright: 4
   yboundtop: 0.5
-  yboundbottom: 1.5
   xmotion: 1
-  ymotion: 1
+  ymotion: 0.5
   speed: 0.02
 --- !u!1 &1064722601
 GameObject:
