@@ -12,15 +12,17 @@ public class cameramovement : MonoBehaviour
     
     //sets when to move camera
     public float xboundright = 2.0f;
-    public float ybound = 0.05f;
     public float xboundleft = 3.0f;
-    
+    public float yboundtop = 0.5f;
+    public float yboundbottom = 1.5f;
+
     //sets how far to move camera --> lower = move further
     public float xmotion = 1.0f;
+    public float ymotion = 1.0f;
     
     //position and speed for lerp
     Vector3 moveTo;
-    public float speed = 0.2f;
+    public float speed = 0.04f;
     
     Vector3 temp = Vector3.zero;
     
@@ -52,15 +54,35 @@ public class cameramovement : MonoBehaviour
             //Debug.Log(dx1);
             temp.x = dx1 - xmotion;
         }
+        else if (dx1 < -xboundright)
+        {
+            temp.x = dx1 + xboundright;
+        }
         //if camera already in place where can see a little ahead in map, reset temp to 0
-        if (dx1 < -xboundleft)
+        /*if (dx1 < -xboundleft)
         {
             //Debug.Log("stopping");
             temp.x = 0;
-        }
+        }*/
         //check if other player is still on screen - if not, drag them over also
         
         //if y-distance too large going up - dy > ybound - then zoom out if other one is too low, move if both going up
+        if (dy1 > yboundtop)
+        {
+            //Debug.Log(dy1);
+            temp.y = dy1 - ymotion;
+        }
+        else if (dy1 < -yboundtop)
+        {
+            Debug.Log(dy1);
+            temp.y = dy1 + ymotion;
+        }
+        //if camera already in place where can see a little ahead in map, reset temp to 0
+        /*if (dy1 < -yboundbottom)
+        {
+            //Debug.Log("stopping");
+            temp.y = 0;
+        }*/
         
         //update moveTo position
         moveTo = transform.position + temp;

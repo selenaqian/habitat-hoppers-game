@@ -9285,7 +9285,7 @@ GameObject:
   - component: {fileID: 1043433308}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9324,7 +9324,7 @@ Camera:
   far clip plane: 1000
   field of view: 122
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -9348,7 +9348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043433304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.61, y: -0.02, z: -1.1842705}
+  m_LocalPosition: {x: -4.74, y: -2.72, z: -1.1842705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9369,10 +9369,12 @@ MonoBehaviour:
   player1: {fileID: 1344525316}
   player2: {fileID: 1666576725}
   xboundright: 2
-  ybound: 3
   xboundleft: 3
+  yboundtop: 0.5
+  yboundbottom: 1.5
   xmotion: 1
-  speed: 0.05
+  ymotion: 1
+  speed: 0.02
 --- !u!1 &1064722601
 GameObject:
   m_ObjectHideFlags: 0
