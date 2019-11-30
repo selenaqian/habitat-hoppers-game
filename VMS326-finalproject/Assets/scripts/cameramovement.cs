@@ -12,13 +12,19 @@ public class cameramovement : MonoBehaviour
     
     //sets when to move camera
     public float xboundright = 4.0f;
-    //public float xboundleft = 6.0f;
+    public float xboundleft = 6.0f;
     public float yboundtop = 0.5f;
     //public float yboundbottom = 1.5f;
 
     //sets how far to move camera --> lower = move further
     public float xmotion = 1.0f;
     public float ymotion = 0.5f;
+    
+    //record if moving or not and which player is in control of that at the moment
+    private int p1x=0;
+    private int p2x=0;
+    private int p1y=0;
+    private int p2y=0;
     
     //position and speed for lerp
     Vector3 moveTo;
@@ -55,23 +61,31 @@ public class cameramovement : MonoBehaviour
             if (dx1 > xboundright)
             {
                 temp.x = dx1 - xmotion;
+                p1x = 1;
             }
             else if (dx2 > xboundright)
             {
                 temp.x = dx2 - xmotion;
+                p2x = 1;
             }
         }
-        else if (dx1 < -xboundright)
+        /*else if (dx1 < -xboundright)
         {
             temp.x = dx1 + xboundright;
-        }
+        }*/ //need to get rid of backward motion because dragging the other player won't work
         
         //if camera already in place where can see a little ahead in map, reset temp to 0
-        /*if (dx1 < -xboundleft)
+        if (dx1 < -xboundleft && p1x == 1)
         {
             //Debug.Log("stopping");
             temp.x = 0;
-        }*/
+            p1x = 0;
+        }
+        else if (dx2 < -xboundleft && p2x == 1)
+        {
+            temp.x = 0;
+            p2x = 0;
+        }
         
         //if y-distance too large going up - dy > ybound - then zoom out if other one is too low, move if both going up
         if (dy1 > yboundtop)
@@ -99,8 +113,8 @@ public class cameramovement : MonoBehaviour
         //check if players are still on screen - if not, drag them over also
         if (dx2 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize)
         {
-            Debug.Log("camera pos: " + transform.position.x + " player2 pos: " + player2.position.x + " width: " + Screen.width/Screen.height * Camera.main.orthographicSize);
-            Debug.Log("player2 offscreen left");
+            //Debug.Log("camera pos: " + transform.position.x + " player2 pos: " + player2.position.x + " width: " + Screen.width/Screen.height * Camera.main.orthographicSize);
+            //Debug.Log("player2 offscreen left");
             player2.GetComponent<Rigidbody2D>().AddForce(new Vector2(3, 0), ForceMode2D.Impulse);
         }
     }
