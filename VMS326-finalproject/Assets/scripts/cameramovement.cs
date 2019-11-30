@@ -33,7 +33,7 @@ public class cameramovement : MonoBehaviour
     Vector3 temp = Vector3.zero;
     private float newCamSize = 5.0f; //use for zoom in/out lerp
     private float origCamSize = 5.0f;
-    public float x = 0.5f;
+    public float x = 1.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -112,6 +112,11 @@ public class cameramovement : MonoBehaviour
         {
             //compute new orthographic size
             newCamSize = Mathf.Abs(dy2) + 0.1f;
+            p2y = 1;
+        }
+        if (dy2 < 2.5f && dy2 > - 2.5f && p2y == 1) //if p2 in middle of screen in y-direction
+        {
+            newCamSize = 5.0f;
         }
         
         //update moveTo position
