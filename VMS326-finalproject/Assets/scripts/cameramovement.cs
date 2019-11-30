@@ -14,11 +14,11 @@ public class cameramovement : MonoBehaviour
     public float xboundright = 4.0f;
     public float xboundleft = 6.0f;
     public float yboundtop = 1.5f;
-    public float yboundbottom = 1.0f;
+    public float yboundbottom = 1.2f;
 
     //sets how far to move camera --> lower = move further
     public float xmotion = 1.0f;
-    public float ymotion = 0.5f;
+    public float ymotion = 1.0f;
     
     //record if moving or not and which player is in control of that at the moment
     private int p1x=0;
@@ -31,6 +31,9 @@ public class cameramovement : MonoBehaviour
     public float speed = 0.015f;
     
     Vector3 temp = Vector3.zero;
+    private float newCamSize = 5.0f; //use for zoom in/out lerp
+    private float origCamSize = 5.0f;
+    public float x = 0.5f;
     
     // Start is called before the first frame update
     void Start()
@@ -88,7 +91,7 @@ public class cameramovement : MonoBehaviour
         }
         
         //if y-distance too large going up - dy > ybound - then zoom out if other one is too low, move if both going up
-        //set up so move only for player1 but zoom for player2
+        //set up so move only for player1, zoom for player2
         if (dy1 > yboundtop)
         {
             temp.y = dy1 - ymotion;
@@ -104,11 +107,18 @@ public class cameramovement : MonoBehaviour
             temp.y = 0;
             p1y = 0;
         }
+        //zooming
+        if (dy2 > Camera.main.orthographicSize || dy2 < -Camera.main.orthographicSize) //if p2 offscreen in y-direction
+        {
+            //compute new orthographic size
+            newCamSize = Mathf.Abs(dy2) + 0.1f;
+        }
         
         //update moveTo position
         moveTo = transform.position + temp;
         //lerp
         transform.position = Vector3.Lerp(transform.position, moveTo, speed);
+        Camera.main.orthographicSize = Mathf.Lerp(origCamSize, newCamSize, x);
         
         //check if players are still on screen - if not, drag them over also
         if (dx2 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize)
