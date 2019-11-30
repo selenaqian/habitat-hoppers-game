@@ -9366,10 +9366,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd3c4b94d4334103968c821e67f076c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
-  xbound: 5
-  ybound: 5
+  player1: {fileID: 1344525316}
+  player2: {fileID: 1666576725}
+  xboundright: 2
+  ybound: 3
+  xboundleft: 3
+  xmotion: 1
+  speed: 0.05
 --- !u!1 &1064722601
 GameObject:
   m_ObjectHideFlags: 0
