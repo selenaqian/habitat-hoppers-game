@@ -63,6 +63,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
      <Compile Include="Assets\scripts\backtomap.cs" />
      <Compile Include="Assets\scripts\cameracontroller.cs" />
+     <Compile Include="Assets\scripts\cameramovement.cs" />
      <Compile Include="Assets\scripts\cameratoggle.cs" />
      <Compile Include="Assets\scripts\ExitWatcher.cs" />
      <Compile Include="Assets\scripts\gameover.cs" />

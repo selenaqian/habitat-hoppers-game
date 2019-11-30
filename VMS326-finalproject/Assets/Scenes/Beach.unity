@@ -931,7 +931,6 @@ GameObject:
   - component: {fileID: 679092170}
   - component: {fileID: 679092169}
   - component: {fileID: 679092171}
-  - component: {fileID: 679092172}
   m_Layer: 0
   m_Name: base sand
   m_TagString: Untagged
@@ -9034,27 +9033,6 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.2}
---- !u!50 &679092172
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679092167}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &707663256
 GameObject:
   m_ObjectHideFlags: 0
@@ -9130,7 +9108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707663256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 81.293, y: -5.501, z: 0.5}
+  m_LocalPosition: {x: 81.441, y: -5.313, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9249,7 +9227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940365332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.379, y: -5.419, z: 0.5}
+  m_LocalPosition: {x: 80.379, y: -5.325, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9304,6 +9282,7 @@ GameObject:
   - component: {fileID: 1043433307}
   - component: {fileID: 1043433306}
   - component: {fileID: 1043433305}
+  - component: {fileID: 1043433308}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -9375,6 +9354,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1043433308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043433304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd3c4b94d4334103968c821e67f076c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  xbound: 5
+  ybound: 5
 --- !u!1 &1064722601
 GameObject:
   m_ObjectHideFlags: 0
