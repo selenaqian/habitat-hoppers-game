@@ -13,8 +13,8 @@ public class cameramovement : MonoBehaviour
     //sets when to move camera
     public float xboundright = 4.0f;
     public float xboundleft = 6.0f;
-    public float yboundtop = 0.5f;
-    public float yboundbottom = 1.5f;
+    public float yboundtop = 1.5f;
+    public float yboundbottom = 1.0f;
 
     //sets how far to move camera --> lower = move further
     public float xmotion = 1.0f;
@@ -87,42 +87,23 @@ public class cameramovement : MonoBehaviour
             p2x = 0;
         }
         
-        //if y-distance too large going up - dy > ybound - then zoom out? if other one is too low, move if both going up
-        if (dy1 > yboundtop || dy2 > yboundtop)
+        //if y-distance too large going up - dy > ybound - then zoom out if other one is too low, move if both going up
+        //set up so move only for player1 but zoom for player2
+        if (dy1 > yboundtop)
         {
-            //Debug.Log(dy1);
-            if (dy1 > yboundtop)
-            {
-                temp.y = dy1 - ymotion;
-                p1y = 1;
-            }
-            else if (dy2 > yboundtop)
-            {
-                temp.y = dy2 - ymotion;
-                p2y = 1;
-            }
+            temp.y = dy1 - ymotion;
+            p1y = 1;
         }
-        if (dy1 < -yboundtop && p1y == 1)
+        else if (dy1 < -yboundtop)
+        {
+            temp.y = dy1 + ymotion;
+            p1y = 1;
+        }
+        if (dy1 < yboundbottom && dy1 > -yboundbottom && p1y == 1)
         {
             temp.y = 0;
             p1y = 0;
         }
-        else if (dy2 < -yboundtop && p2y == 1)
-        {
-            temp.y = 0;
-            p2y = 0;
-        }
-        /*else if (dy1 < -yboundtop)
-        {
-            //Debug.Log(dy1);
-            temp.y = dy1 + ymotion;
-        }*/
-        //if camera already in place where can see a little ahead in map, reset temp to 0
-        /*if (dy1 < -yboundbottom)
-        {
-            //Debug.Log("stopping");
-            temp.y = 0;
-        }*/
         
         //update moveTo position
         moveTo = transform.position + temp;
@@ -134,12 +115,12 @@ public class cameramovement : MonoBehaviour
         {
             //Debug.Log("camera pos: " + transform.position.x + " player2 pos: " + player2.position.x + " width: " + Screen.width/Screen.height * Camera.main.orthographicSize);
             //Debug.Log("player2 offscreen left");
-            player2.GetComponent<Rigidbody2D>().AddForce(new Vector2(3, 0), ForceMode2D.Impulse);
+            player2.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 0), ForceMode2D.Impulse);
         }
         
         if (dx1 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize)
         {
-            player1.GetComponent<Rigidbody2D>().AddForce(new Vector2(3, 0), ForceMode2D.Impulse);
+            player1.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 0), ForceMode2D.Impulse);
         }
     }
 }
