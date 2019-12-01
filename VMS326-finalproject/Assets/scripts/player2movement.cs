@@ -33,8 +33,17 @@ public class player2movement : MonoBehaviour
         /*if(transform.position.y < -15) {
             p2dead = 1;
         }*/
+        
+        //off-screen death condition
+        float dx2 = transform.position.x - Camera.main.transform.position.x;
+        if (dx2 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize - 0.1f)
+        {
+            p2dead = 1;
+        }
       
     }
+    
+    //falling death condition
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("p2 hit water");

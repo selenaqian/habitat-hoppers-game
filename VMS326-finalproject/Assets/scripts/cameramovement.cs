@@ -36,6 +36,9 @@ public class cameramovement : MonoBehaviour
     public float x = 1.0f;
     private float startZoomIn;
     
+    //gameover condition
+    private bool gameover = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +48,15 @@ public class cameramovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player1movement.p1dead == 1 || player2movement.p2dead == 1)
+        {
+            gameover = true;
+        }
     }
     
     private void LateUpdate()
     {
         origCamSize = Camera.main.orthographicSize;
-        Vector3 delta1 = Vector3.zero;
         
         float dx1 = player1.position.x - transform.position.x; //x-distance between player1 and camera
         float dx2 = player2.position.x - transform.position.x; //x-distance between player2 and camera
@@ -145,8 +150,15 @@ public class cameramovement : MonoBehaviour
             newCamSize = 5.0f;
         }*/
         
+        //check gameover condition
+        if (gameover)
+        {
+            temp = Vector3.zero;
+        }
+        
         //update moveTo position
         moveTo = transform.position + temp;
+        
         //lerp
         transform.position = Vector3.Lerp(transform.position, moveTo, speed);
         //update camera size
