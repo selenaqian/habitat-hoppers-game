@@ -99,13 +99,13 @@ public class cameramovement : MonoBehaviour
         float dyoverall = ymidplayers - transform.position.y; //difference between midpoint of y-dist between players and camera
         if (dyoverall > yboundtop)
         {
-            Debug.Log("moving up");
+            //Debug.Log("moving up");
             temp.y = dyoverall - ymotion;
             p1y = 1;
         }
         else if (dyoverall < -yboundtop)
         {
-            Debug.Log("moving down");
+            //Debug.Log("moving down");
             temp.y = dyoverall + ymotion;
             p1y = 1;
         }

@@ -30,10 +30,16 @@ public class player1movement : MonoBehaviour
         }
         
         //check for death condition
-        if(transform.position.y < -15) {
+        /*if(transform.position.y < -15) {
             p1dead = 1;
-        }
+        }*/
       
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Debug.Log("p1 hit water");
+        p1dead = 1;
     }
     
     void OnCollisionEnter2D(Collision2D other)
