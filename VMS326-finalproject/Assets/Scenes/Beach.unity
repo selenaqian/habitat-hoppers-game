@@ -8998,8 +8998,8 @@ Tilemap:
     m_Data: {r: 0.9165444, g: 0.63435906, b: 0.7070671, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -11, y: -11, z: 0}
-  m_Size: {x: 101, y: 14, z: 1}
+  m_Origin: {x: -15, y: -13, z: 0}
+  m_Size: {x: 105, y: 16, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
