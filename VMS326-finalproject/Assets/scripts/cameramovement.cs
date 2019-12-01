@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class cameramovement : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class cameramovement : MonoBehaviour
     Vector3 temp = Vector3.zero;
     private float newCamSize = 5.0f; //use for zoom in/out lerp
     private float origCamSize = 5.0f;
+    private float defaultCamSize = 5.0f;
     public float x = 1.0f;
     private float startZoomIn;
     
@@ -42,7 +44,12 @@ public class cameramovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (SceneManager.GetActiveScene().name == "Cave") //need a little more zoomed out for cave art
+        {
+            newCamSize = 7.0f;
+            origCamSize = 7.0f;
+            defaultCamSize = 7.0f;
+        }
     }
 
     // Update is called once per frame
@@ -67,15 +74,16 @@ public class cameramovement : MonoBehaviour
         //if x-distance too large on the right - dx > xbound - then move camera
         if (dx1 > xboundright || dx2 > xboundright)
         {
-            //Debug.Log(dx1);
             if (dx1 > xboundright)
             {
+                Debug.Log("moving right1");
                 temp.x = dx1 - xmotion;
                 p1x = 1;
             }
             else if (dx2 > xboundright)
             {
                 temp.x = dx2 - xmotion;
+                Debug.Log("moving right2 camera x: " + Camera.main.transform.position.x + " moving: " + temp.x);
                 p2x = 1;
             }
         }
@@ -87,7 +95,7 @@ public class cameramovement : MonoBehaviour
         //if camera already in place where can see a little ahead in map, reset temp to 0
         if (dx1 < -xboundleft && p1x == 1)
         {
-            //Debug.Log("stopping");
+            Debug.Log("stopping1");
             temp.x = 0;
             p1x = 0;
         }
@@ -132,10 +140,10 @@ public class cameramovement : MonoBehaviour
             newCamSize = Mathf.Abs(dy2) + 0.1f;
             p2y = 1;
         }
-        else if (dyplayers < 5.0f && p2y == 1 && p1y == 0) //if both players on-screen in default range
+        else if (dyplayers < defaultCamSize && p2y == 1 && p1y == 0) //if both players on-screen in default range
         {
             //Debug.Log("zoom in");
-            newCamSize = 5.0f;
+            newCamSize = defaultCamSize;
             p2y = 0;
             startZoomIn = Time.time;
         }

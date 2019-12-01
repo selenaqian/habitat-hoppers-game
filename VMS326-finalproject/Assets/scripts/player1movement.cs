@@ -1,15 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player1movement : MonoBehaviour
 {
     public static int p1dead;
 	// Start is called before the first frame update
 	private int numjumps = 0;
+    
+    private static int xforce = 10;
+    private static int yforce = 5;
+
     void Start()
     {
         p1dead = 0;
+        if (SceneManager.GetActiveScene().name == "Cave") //need move slower
+        {
+            xforce = 5;
+        }
     }
 
     // Update is called once per frame
@@ -17,15 +26,15 @@ public class player1movement : MonoBehaviour
     {
         if(Input.GetKey("a"))
         {
-            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Force);
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(-xforce, 0), ForceMode2D.Force);
         }
         if(Input.GetKey("d"))
         {
-            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 0), ForceMode2D.Force);
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(xforce, 0), ForceMode2D.Force);
         }
         if (Input.GetKeyDown("w") && numjumps<2)
         {
-            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, yforce), ForceMode2D.Impulse);
 			numjumps++;
         }
         
