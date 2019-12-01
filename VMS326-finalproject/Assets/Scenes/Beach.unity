@@ -9324,7 +9324,7 @@ MonoBehaviour:
   player1: {fileID: 1344525316}
   player2: {fileID: 1666576725}
   xboundright: 4
-  xboundleft: 6
+  xboundleft: 2
   yboundtop: 1.5
   yboundbottom: 1.2
   xmotion: 1
