@@ -12,7 +12,7 @@ public class cameramovement : MonoBehaviour
     
     //sets when to move camera
     public float xboundright = 4.0f;
-    public float xboundleft = 6.0f;
+    public float xboundleft = 2.0f;
     public float yboundtop = 1.5f;
     public float yboundbottom = 1.2f;
 

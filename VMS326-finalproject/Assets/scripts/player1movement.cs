@@ -36,7 +36,7 @@ public class player1movement : MonoBehaviour
         
         //off-screen death condition
         float dx1 = transform.position.x - Camera.main.transform.position.x;
-        if (dx1 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize - 0.1f)
+        if (dx1 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize - 0.5f)
         {
             p1dead = 1;
         }
@@ -47,7 +47,10 @@ public class player1movement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("p1 hit water");
+        if (other.gameObject.name == "death water")
+        {
         p1dead = 1;
+        }
     }
     
     void OnCollisionEnter2D(Collision2D other)
