@@ -117,19 +117,19 @@ public class cameramovement : MonoBehaviour
         //zooming
         if (dy1 > Camera.main.orthographicSize || dy1 < -Camera.main.orthographicSize) //if p1 off-screen
         {
-            Debug.Log("zoom out 1");
+            //Debug.Log("zoom out 1");
             newCamSize = Mathf.Abs(dy1) + 0.1f;
             p2y = 1;
         }
         else if (dy2 > Camera.main.orthographicSize || dy2 < -Camera.main.orthographicSize) //if p2 off-screen
         {
-            Debug.Log("zoom out 2");
+            //Debug.Log("zoom out 2");
             newCamSize = Mathf.Abs(dy2) + 0.1f;
             p2y = 1;
         }
         else if (dyplayers < 5.0f && p2y == 1 && p1y == 0) //if both players on-screen in default range
         {
-            Debug.Log("zoom in");
+            //Debug.Log("zoom in");
             newCamSize = 5.0f;
             p2y = 0;
             startZoomIn = Time.time;
