@@ -9,7 +9,7 @@ public class player1movement : MonoBehaviour
 	// Start is called before the first frame update
 	private int numjumps = 0;
     
-    private static int xforce = 10;
+    private static int xforce = 5;
     private static int yforce = 5;
 
     void Start()
@@ -17,7 +17,7 @@ public class player1movement : MonoBehaviour
         p1dead = 0;
         if (SceneManager.GetActiveScene().name == "Cave") //need move slower
         {
-            xforce = 5;
+            xforce = 3;
         }
     }
 

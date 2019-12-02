@@ -8,7 +8,7 @@ public class player2movement : MonoBehaviour
     public static int p2dead;
     private int numjumps = 0;
     
-    private static int xforce = 10;
+    private static int xforce = 5;
     private static int yforce = 5;
     
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class player2movement : MonoBehaviour
         p2dead = 0;
         if (SceneManager.GetActiveScene().name == "Cave") //need move slower
         {
-            xforce = 5;
+            xforce = 3;
         }
     }
 
