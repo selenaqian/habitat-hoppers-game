@@ -5,8 +5,9 @@ using UnityEngine;
 public class followBehindP1 : MonoBehaviour
 {
     public GameObject player1;
-    Queue<Vector3> p1path = new Queue<Vector3>();
-    Vector3 temp = Vector3.zero;
+    Queue<Transform> p1path = new Queue<Transform>();
+    Transform temp;
+    Vector3 tempVector = new Vector3(0.0f, 0.5f, 0.0f);
     
     // Start is called before the first frame update
     void Start()
@@ -17,11 +18,15 @@ public class followBehindP1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        p1path.Enqueue(player1.transform.position);
+        p1path.Enqueue(player1.transform);
         if (p1path.Count > 60 && Vector3.Distance(transform.position, player1.transform.position) > 5.0f)
         {
             temp = p1path.Dequeue();
+            Vector3 tempdir = temp.transform.TransformDirection(Vector3.forward); // find direction p1 was traveling in - use to set up offset
+            tempdir.Normalize();
+            tempVector.x = temp.position.x - 5.0f*tempdir.x;
+            tempVector.z = temp.position.z - 5.0f*tempdir.z;
         }
-        transform.position = Vector3.Lerp(transform.position, temp, 0.1f);
+        transform.position = Vector3.Lerp(transform.position, tempVector, 0.1f);
     }
 }
