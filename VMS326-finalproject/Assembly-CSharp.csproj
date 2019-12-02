@@ -71,6 +71,7 @@
      <Compile Include="Assets\scripts\jumptolevel.cs" />
      <Compile Include="Assets\scripts\KeepDuringSceneSwitch.cs" />
      <Compile Include="Assets\scripts\KeyboardCameraController.cs" />
+     <Compile Include="Assets\scripts\MapP1Movement.cs" />
      <Compile Include="Assets\scripts\p1done.cs" />
      <Compile Include="Assets\scripts\p2done.cs" />
      <Compile Include="Assets\scripts\player1movement.cs" />

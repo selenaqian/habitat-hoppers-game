@@ -20,8 +20,8 @@ public class jumptolevel : MonoBehaviour
     }
     
     void OnTriggerEnter(Collider other) {
-        //Debug.Log("hit camera");
-        if (other.gameObject.name == "cameraproxy") {
+        if (other.gameObject.name == "Sphere") {
+            Debug.Log("hit sphere");
             rend.material.color = Color.black;
             SceneManager.LoadScene(jumpto);
         }
