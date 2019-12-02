@@ -22,4 +22,10 @@ public class p2done : MonoBehaviour
             player2done = 1;
         }
     }
+    
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.name == "player2") {
+            player2done = 0;
+        }
+    }
 }
