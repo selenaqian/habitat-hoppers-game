@@ -65,5 +65,17 @@ public class player2movement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         numjumps=0;
+        if(other.gameObject.name == "movingPlatform" || other.gameObject.name == "movingPlatform1" || other.gameObject.name == "movingPlatform2" || other.gameObject.name == "movingPlatform3")
+        {
+            transform.parent = other.transform;
+        }
     }
+    
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.name == "movingPlatform" || other.gameObject.name == "movingPlatform1" || other.gameObject.name == "movingPlatform2" || other.gameObject.name == "movingPlatform3")
+        {
+            transform.parent = null;
+        }
+    } 
 }

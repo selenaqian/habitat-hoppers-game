@@ -76,14 +76,14 @@ public class cameramovement : MonoBehaviour
         {
             if (dx1 > xboundright)
             {
-                Debug.Log("moving right1");
+                //Debug.Log("moving right1");
                 temp.x = dx1 - xmotion;
                 p1x = 1;
             }
             else if (dx2 > xboundright)
             {
                 temp.x = dx2 - xmotion;
-                Debug.Log("moving right2 camera x: " + Camera.main.transform.position.x + " moving: " + temp.x);
+                //Debug.Log("moving right2 camera x: " + Camera.main.transform.position.x + " moving: " + temp.x);
                 p2x = 1;
             }
         }
@@ -95,7 +95,7 @@ public class cameramovement : MonoBehaviour
         //if camera already in place where can see a little ahead in map, reset temp to 0
         if (dx1 < -xboundleft && p1x == 1)
         {
-            Debug.Log("stopping1");
+            //Debug.Log("stopping1");
             temp.x = 0;
             p1x = 0;
         }
