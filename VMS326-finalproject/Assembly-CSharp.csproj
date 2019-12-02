@@ -65,6 +65,7 @@
      <Compile Include="Assets\scripts\cameracontroller.cs" />
      <Compile Include="Assets\scripts\cameramovement.cs" />
      <Compile Include="Assets\scripts\cameratoggle.cs" />
+     <Compile Include="Assets\scripts\CaveMovingPlatform.cs" />
      <Compile Include="Assets\scripts\ExitWatcher.cs" />
      <Compile Include="Assets\scripts\gameover.cs" />
      <Compile Include="Assets\scripts\jumptolevel.cs" />
