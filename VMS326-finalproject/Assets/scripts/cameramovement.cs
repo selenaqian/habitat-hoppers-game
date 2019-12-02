@@ -167,7 +167,7 @@ public class cameramovement : MonoBehaviour
         //update moveTo position
         moveTo = transform.position + temp;
         
-        //lerp
+        //lerp - actual movement
         transform.position = Vector3.Lerp(transform.position, moveTo, speed);
         //update camera size
         if ((Time.time - startZoomIn)*0.3f < 1.0f)
