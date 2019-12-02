@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class gameover : MonoBehaviour
 {
-    public GameObject text;
+    GameObject text;
     // Start is called before the first frame update
     void Start()
     {
+        text = GameObject.Find("gameover");
         text.SetActive(false);
     }
 
