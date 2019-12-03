@@ -23,21 +23,21 @@ public class backtomap : MonoBehaviour
         if (p1done.player1done == 1 && p2done.player2done == 1) {
             if (SceneManager.GetActiveScene().name == "Beach") //level 1
             {
-                xStart = 50.0f;
+                xStart = 104.2f;
                 zStart = 40.0f;
                 level1complete = true;
             }
             if (SceneManager.GetActiveScene().name == "Forest") //level 2
             {
-                xStart = 108.0f;
-                zStart = 80.0f;
-                level1complete = true;
+                xStart = 331.2f;
+                zStart = 150.0f;
+                level2complete = true;
             }
             if (SceneManager.GetActiveScene().name == "Cave") //level 3
             {
                 xStart = 334.0f;
                 zStart = 189.0f;
-                level1complete = true;
+                level3complete = true;
             }
             SceneManager.LoadScene("MapArea");
         }
