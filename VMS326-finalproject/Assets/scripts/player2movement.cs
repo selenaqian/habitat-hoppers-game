@@ -10,11 +10,16 @@ public class player2movement : MonoBehaviour
     
     private static int xforce = 5;
     private static int yforce = 5;
-    
+
+    AudioSource playerdeathaudio;
+    private bool audioplayed;
+
     // Start is called before the first frame update
     void Start()
     {
         p2dead = 0;
+        audioplayed = false;
+        playerdeathaudio = GetComponent<AudioSource>();
         if (SceneManager.GetActiveScene().name == "Cave") //need move slower
         {
             xforce = 3;
@@ -48,6 +53,11 @@ public class player2movement : MonoBehaviour
         if (dx2 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize - 0.5f)
         {
             p2dead = 1;
+            if (!playerdeathaudio.isPlaying && !audioplayed)
+            {
+                playerdeathaudio.Play();
+                audioplayed = true;
+            }
         }
       
     }

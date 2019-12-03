@@ -19,17 +19,17 @@ public class player1Level1Restart : MonoBehaviour
 
     public void P1L1Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1.0f;
         player1movement.p1dead = 0;
         player2movement.p2dead = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitClicked()
     {
-        SceneManager.LoadScene("MapArea");
         Time.timeScale = 1.0f;
         player1movement.p1dead = 0;
         player2movement.p2dead = 0;
+        SceneManager.LoadScene("MapArea");
     }
 }
