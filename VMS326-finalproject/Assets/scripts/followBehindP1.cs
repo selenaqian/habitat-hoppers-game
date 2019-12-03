@@ -12,7 +12,8 @@ public class followBehindP1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = new Vector3(backtomap.xStart + 0.5f, 0.5f, backtomap.zStart - 1.7f);
+        tempVector = new Vector3(backtomap.xStart + 0.5f, 0.5f, backtomap.zStart - 1.7f);
     }
 
     // Update is called once per frame

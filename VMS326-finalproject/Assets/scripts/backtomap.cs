@@ -34,14 +34,14 @@ public class backtomap : MonoBehaviour
         if (p1done.player1done == 1 && p2done.player2done == 1) {
             if (SceneManager.GetActiveScene().name == "Beach") //level 1
             {
-                //xStart = 104.2f;
-                //zStart = 40.0f;
+                xStart = 104.2f;
+                zStart = 40.0f;
                 level1complete = true;
             }
             if (SceneManager.GetActiveScene().name == "Forest") //level 2
             {
                 xStart = 331.2f;
-                zStart = 150.0f;
+                zStart = 170.0f;
                 level2complete = true;
             }
             if (SceneManager.GetActiveScene().name == "Cave") //level 3
@@ -107,7 +107,7 @@ public class backtomap : MonoBehaviour
                     unfinishedL3.Play();
                 }
             }
-            if (SceneManager.GetActiveScene().name == "Cave") //level 3 passed
+            if (level3complete == true) //level 3 passed
             {
                 if (unfinishedL3.isPlaying)
                 {

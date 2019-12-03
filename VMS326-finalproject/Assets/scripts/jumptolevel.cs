@@ -37,7 +37,7 @@ public class jumptolevel : MonoBehaviour
                 SceneManager.LoadScene(jumpto);
             }
         }
-        if (levelnum == 3 && backtomap.level1complete && backtomap.level2complete && backtomap.level3complete)
+        if (levelnum == 3 && backtomap.level1complete && backtomap.level2complete && !backtomap.level3complete)
         {
             if (other.gameObject.name == "player1")
             {
