@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapP1Movement : MonoBehaviour
 {
-    //public float rotationSpeed=50.0f;
+    public float rotationSpeed=50.0f;
 	//public float translationSpeed=20.0f;
     public float xforce = 30.0f;
     public float zforce = 30.0f;
@@ -23,26 +23,26 @@ public class MapP1Movement : MonoBehaviour
       
         if(Input.GetKey("a"))
         {
-            //transform.Rotate(0f, -1.0f * rotationSpeed * Time.deltaTime, 0f,Space.World);
-            this.GetComponent<Rigidbody>().AddForce(new Vector3(-xforce, 0, 0), ForceMode.Force);
+            transform.Rotate(0f, -1.0f * rotationSpeed * Time.deltaTime, 0f,Space.World);
+            //this.GetComponent<Rigidbody>().AddForce(new Vector3(-xforce, 0, 0), ForceMode.Force);
         }
         
         if(Input.GetKey("d"))
         {
-            //transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f, Space.World);
-            this.GetComponent<Rigidbody>().AddForce(new Vector3(xforce, 0, 0), ForceMode.Force);
+            transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f, Space.World);
+            //this.GetComponent<Rigidbody>().AddForce(new Vector3(xforce, 0, 0), ForceMode.Force);
         }
         
         if(Input.GetKey("w"))
         {
             //transform.Translate(travelDir * Time.deltaTime * translationSpeed, Space.World);
-            this.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, zforce), ForceMode.Force);
+            this.GetComponent<Rigidbody>().AddForce(zforce*travelDir, ForceMode.Force);
         }
         
         if(Input.GetKey("s"))
         {
             //transform.Translate(-travelDir * Time.deltaTime * translationSpeed, Space.World);
-            this.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -zforce), ForceMode.Force);
+            this.GetComponent<Rigidbody>().AddForce(-zforce*travelDir, ForceMode.Force);
         }
     }
 }
