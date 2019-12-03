@@ -12,9 +12,15 @@ public class player1movement : MonoBehaviour
     private static int xforce = 5;
     private static int yforce = 5;
 
+    AudioSource playerdeathaudio;
+    private bool audioplayed;
+
+    // Start is called before the first frame update
     void Start()
     {
         p1dead = 0;
+        audioplayed = false;
+        playerdeathaudio = GetComponent<AudioSource>();
         if (SceneManager.GetActiveScene().name == "Cave") //need move slower
         {
             xforce = 3;
@@ -48,6 +54,11 @@ public class player1movement : MonoBehaviour
         if (dx1 < - (float)Screen.width/(float)Screen.height * Camera.main.orthographicSize - 0.5f)
         {
             p1dead = 1;
+            if (!playerdeathaudio.isPlaying && !audioplayed)
+            {
+                playerdeathaudio.Play();
+                audioplayed = true;
+            }
         }
       
     }
@@ -58,7 +69,7 @@ public class player1movement : MonoBehaviour
         //Debug.Log("p1 hit water");
         if (other.gameObject.name == "death water")
         {
-        p1dead = 1;
+            p1dead = 1;
         }
         
     }
