@@ -9872,6 +9872,7 @@ GameObject:
   - component: {fileID: 794200558}
   - component: {fileID: 794200557}
   - component: {fileID: 794200560}
+  - component: {fileID: 794200561}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9894,7 +9895,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794200556}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -9936,14 +9937,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794200556}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3899994, y: 1.5, z: -11.690001}
+  m_LocalRotation: {x: 0.07964177, y: 0.008537663, z: -0.0006821417, w: 0.9967868}
+  m_LocalPosition: {x: 52.21, y: 10.9, z: -30.310001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 677448522}
-  m_Father: {fileID: 1588625783}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 9.136001, y: 0.98100007, z: 0}
 --- !u!114 &794200560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9958,6 +9959,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 50
   translationSpeed: 20
+--- !u!114 &794200561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794200556}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639ace3129b8144c898d6111c93f3a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 4
+  player: {fileID: 1588625783}
 --- !u!1 &947682118
 GameObject:
   m_ObjectHideFlags: 0
@@ -24223,8 +24238,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 49.71, y: 0.5, z: 3.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 794200559}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24298,8 +24312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeb96340e8a248c28725178b1159fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 50
-  translationSpeed: 20
+  xforce: 30
+  zforce: 30
 --- !u!54 &1588625788
 Rigidbody:
   m_ObjectHideFlags: 0

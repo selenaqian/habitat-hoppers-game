@@ -7,7 +7,7 @@ public class followBehindP1 : MonoBehaviour
     public GameObject player1;
     Queue<Transform> p1path = new Queue<Transform>();
     Transform temp;
-    Vector3 tempVector = new Vector3(0.0f, 0.5f, 0.0f);
+    Vector3 tempVector = new Vector3(50.26f, 0.5f, 1.8f);
     
     // Start is called before the first frame update
     void Start()
