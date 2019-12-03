@@ -25,15 +25,7 @@ public class backtomap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CubeL1 = GameObject.Find("CubeL1");
-        unfinishedL1 = GameObject.Find("unfinishedL1").GetComponent<ParticleSystem>();
-        finishedL1 = GameObject.Find("finishedL1").GetComponent<ParticleSystem>();
-        CubeL2 = GameObject.Find("CubeL2");
-        unfinishedL2 = GameObject.Find("unfinishedL2").GetComponent<ParticleSystem>();
-        finishedL2 = GameObject.Find("finishedL2").GetComponent<ParticleSystem>();
-        CubeL3 = GameObject.Find("CubeL3");
-        unfinishedL3 = GameObject.Find("unfinishedL3").GetComponent<ParticleSystem>();
-        finishedL3 = GameObject.Find("finishedL3").GetComponent<ParticleSystem>();
+        
     }
 
     // Update is called once per frame
@@ -58,40 +50,75 @@ public class backtomap : MonoBehaviour
                 zStart = 189.0f;
                 level3complete = true;
             }
-            SceneManager.LoadScene("MapArea");
+            p1done.player1done = 0;
+            p2done.player2done = 0;
+            SceneManager.LoadSceneAsync("MapArea");
+        }
+
+        if (SceneManager.GetActiveScene().name == "MapArea")
+        {
+            CubeL1 = GameObject.Find("CubeL1");
+            unfinishedL1 = GameObject.Find("unfinishedL1").GetComponent<ParticleSystem>();
+            finishedL1 = GameObject.Find("finishedL1").GetComponent<ParticleSystem>();
+            CubeL2 = GameObject.Find("CubeL2");
+            unfinishedL2 = GameObject.Find("unfinishedL2").GetComponent<ParticleSystem>();
+            finishedL2 = GameObject.Find("finishedL2").GetComponent<ParticleSystem>();
+            CubeL3 = GameObject.Find("CubeL3");
+            unfinishedL3 = GameObject.Find("unfinishedL3").GetComponent<ParticleSystem>();
+            finishedL3 = GameObject.Find("finishedL3").GetComponent<ParticleSystem>();
         }
     }
     
     void LateUpdate()
     {
-        if (level1complete == true)
+        if (SceneManager.GetActiveScene().name == "MapArea")
         {
-            if (unfinishedL1.isPlaying)
+            if (level1complete == true) //level 1 passed
             {
-                unfinishedL1.Stop();
+                if (unfinishedL1.isPlaying)
+                {
+                    unfinishedL1.Stop();
+                }
+                if (!(finishedL1.isPlaying))
+                {
+                    finishedL1.Play();
+                }
+                CubeL1.GetComponent<Renderer>().material.color = Color.green;
+                CubeL2.GetComponent<Renderer>().material.color = Color.red;
+                if (!(unfinishedL2.isPlaying))
+                {
+                    unfinishedL2.Play();
+                }
             }
-            if (!(finishedL1.isPlaying))
+            if (level2complete == true) //level 2 passed
             {
-                finishedL1.Play();
+                if (unfinishedL2.isPlaying)
+                {
+                    unfinishedL2.Stop();
+                }
+                if (!(finishedL2.isPlaying))
+                {
+                    finishedL2.Play();
+                }
+                CubeL2.GetComponent<Renderer>().material.color = Color.green;
+                CubeL3.GetComponent<Renderer>().material.color = Color.red;
+                if (!(unfinishedL3.isPlaying))
+                {
+                    unfinishedL3.Play();
+                }
             }
-            CubeL1.GetComponent<Renderer>().material.color = Color.green;
-            CubeL2.GetComponent<Renderer>().material.color = Color.red;
-            if (!(unfinishedL2.isPlaying))
+            if (SceneManager.GetActiveScene().name == "Cave") //level 3 passed
             {
-                unfinishedL2.Play();
+                if (unfinishedL3.isPlaying)
+                {
+                    unfinishedL3.Stop();
+                }
+                if (!(finishedL3.isPlaying))
+                {
+                    finishedL3.Play();
+                }
+                CubeL3.GetComponent<Renderer>().material.color = Color.green;
             }
-        }
-        if (SceneManager.GetActiveScene().name == "Forest") //level 2
-        {
-            xStart = 331.2f;
-            zStart = 150.0f;
-            level2complete = true;
-        }
-        if (SceneManager.GetActiveScene().name == "Cave") //level 3
-        {
-            xStart = 334.0f;
-            zStart = 189.0f;
-            level3complete = true;
         }
     }
 }
