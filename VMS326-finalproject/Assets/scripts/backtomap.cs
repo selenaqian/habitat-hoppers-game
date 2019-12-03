@@ -11,10 +11,29 @@ public class backtomap : MonoBehaviour
     public static bool level2complete = false;
     public static bool level3complete = false;
     
+    //for setting colors and whether particles active
+    GameObject CubeL1;
+    ParticleSystem unfinishedL1;
+    ParticleSystem finishedL1;
+    GameObject CubeL2;
+    ParticleSystem unfinishedL2;
+    ParticleSystem finishedL2;
+    GameObject CubeL3;
+    ParticleSystem unfinishedL3;
+    ParticleSystem finishedL3;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        CubeL1 = GameObject.Find("CubeL1");
+        unfinishedL1 = GameObject.Find("unfinishedL1").GetComponent<ParticleSystem>();
+        finishedL1 = GameObject.Find("finishedL1").GetComponent<ParticleSystem>();
+        CubeL2 = GameObject.Find("CubeL2");
+        unfinishedL2 = GameObject.Find("unfinishedL2").GetComponent<ParticleSystem>();
+        finishedL2 = GameObject.Find("finishedL2").GetComponent<ParticleSystem>();
+        CubeL3 = GameObject.Find("CubeL3");
+        unfinishedL3 = GameObject.Find("unfinishedL3").GetComponent<ParticleSystem>();
+        finishedL3 = GameObject.Find("finishedL3").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -23,8 +42,8 @@ public class backtomap : MonoBehaviour
         if (p1done.player1done == 1 && p2done.player2done == 1) {
             if (SceneManager.GetActiveScene().name == "Beach") //level 1
             {
-                xStart = 104.2f;
-                zStart = 40.0f;
+                //xStart = 104.2f;
+                //zStart = 40.0f;
                 level1complete = true;
             }
             if (SceneManager.GetActiveScene().name == "Forest") //level 2
@@ -40,6 +59,39 @@ public class backtomap : MonoBehaviour
                 level3complete = true;
             }
             SceneManager.LoadScene("MapArea");
+        }
+    }
+    
+    void LateUpdate()
+    {
+        if (level1complete == true)
+        {
+            if (unfinishedL1.isPlaying)
+            {
+                unfinishedL1.Stop();
+            }
+            if (!(finishedL1.isPlaying))
+            {
+                finishedL1.Play();
+            }
+            CubeL1.GetComponent<Renderer>().material.color = Color.green;
+            CubeL2.GetComponent<Renderer>().material.color = Color.red;
+            if (!(unfinishedL2.isPlaying))
+            {
+                unfinishedL2.Play();
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "Forest") //level 2
+        {
+            xStart = 331.2f;
+            zStart = 150.0f;
+            level2complete = true;
+        }
+        if (SceneManager.GetActiveScene().name == "Cave") //level 3
+        {
+            xStart = 334.0f;
+            zStart = 189.0f;
+            level3complete = true;
         }
     }
 }
