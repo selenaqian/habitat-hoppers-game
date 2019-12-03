@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MapArea.unity
+- path: Assets/Scenes/Beach.unity
   isLoaded: 1
   isActive: 1
