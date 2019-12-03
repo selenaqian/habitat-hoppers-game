@@ -27,4 +27,9 @@ public class buttonClicks : MonoBehaviour
     {
         SceneManager.LoadScene("Instructions");
     }
+
+    public void PlayClick()
+    {
+        SceneManager.LoadScene("MapArea");
+    }
 }

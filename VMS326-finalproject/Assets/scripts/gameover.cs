@@ -15,6 +15,11 @@ public class gameover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(text == null)
+        {
+            text = GameObject.Find("gameover");
+            text.SetActive(false);
+        }
         if(player1movement.p1dead == 1 || player2movement.p2dead == 1) {
             text.SetActive(true);
             Time.timeScale = 0.0f;

@@ -55,7 +55,7 @@ public class backtomap : MonoBehaviour
             SceneManager.LoadSceneAsync("MapArea");
         }
 
-        if (SceneManager.GetActiveScene().name == "MapArea")
+        if (CubeL1 == null && SceneManager.GetActiveScene().name == "MapArea")
         {
             CubeL1 = GameObject.Find("CubeL1");
             unfinishedL1 = GameObject.Find("unfinishedL1").GetComponent<ParticleSystem>();
