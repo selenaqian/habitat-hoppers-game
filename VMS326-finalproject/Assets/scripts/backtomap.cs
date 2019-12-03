@@ -37,22 +37,24 @@ public class backtomap : MonoBehaviour
                 xStart = 104.2f;
                 zStart = 40.0f;
                 level1complete = true;
+                SceneManager.LoadSceneAsync("MapArea");
             }
             if (SceneManager.GetActiveScene().name == "Forest") //level 2
             {
                 xStart = 331.2f;
                 zStart = 170.0f;
                 level2complete = true;
+                SceneManager.LoadSceneAsync("MapArea");
             }
             if (SceneManager.GetActiveScene().name == "Cave") //level 3
             {
                 xStart = 334.0f;
                 zStart = 189.0f;
                 level3complete = true;
+                SceneManager.LoadScene("Winner");
             }
             p1done.player1done = 0;
             p2done.player2done = 0;
-            SceneManager.LoadSceneAsync("MapArea");
         }
 
         if (CubeL1 == null && SceneManager.GetActiveScene().name == "MapArea")
@@ -109,7 +111,8 @@ public class backtomap : MonoBehaviour
             }
             if (level3complete == true) //level 3 passed
             {
-                if (unfinishedL3.isPlaying)
+                SceneManager.LoadScene("Winner");
+                /*if (unfinishedL3.isPlaying)
                 {
                     unfinishedL3.Stop();
                 }
@@ -117,7 +120,7 @@ public class backtomap : MonoBehaviour
                 {
                     finishedL3.Play();
                 }
-                CubeL3.GetComponent<Renderer>().material.color = Color.green;
+                CubeL3.GetComponent<Renderer>().material.color = Color.green;*/
             }
         }
     }

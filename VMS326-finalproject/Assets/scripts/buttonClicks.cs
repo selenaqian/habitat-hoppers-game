@@ -32,4 +32,18 @@ public class buttonClicks : MonoBehaviour
     {
         SceneManager.LoadScene("MapArea");
     }
+
+    public void MainMenuClick()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ResetAll()
+    {
+        backtomap.level1complete = false;
+        backtomap.level2complete = false;
+        backtomap.level3complete = false;
+        backtomap.xStart = 50.0f;
+        backtomap.zStart = 3.5f;
+    }
 }

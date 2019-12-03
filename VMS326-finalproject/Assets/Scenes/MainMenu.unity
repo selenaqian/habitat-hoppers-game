@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1657727574}
+      - m_Target: {fileID: 1301273469}
         m_MethodName: StartClick
         m_Mode: 1
         m_Arguments:
@@ -508,6 +508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1301273468}
   - component: {fileID: 1301273467}
+  - component: {fileID: 1301273469}
   m_Layer: 0
   m_Name: habitathoppers-splashlogo-01
   m_TagString: Untagged
@@ -578,6 +579,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.6120002}
+--- !u!114 &1301273469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301273466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906acea414e5b4a1b9bf0c05cdbb2ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1657727573
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +980,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1657727574}
+      - m_Target: {fileID: 1301273469}
         m_MethodName: InstructionsClick
         m_Mode: 1
         m_Arguments:
