@@ -9966,13 +9966,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794200556}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 639ace3129b8144c898d6111c93f3a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 4
-  player: {fileID: 1588625783}
+  player1: {fileID: 1588625782}
 --- !u!1 &947682118
 GameObject:
   m_ObjectHideFlags: 0
