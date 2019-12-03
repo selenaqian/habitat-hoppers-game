@@ -62,6 +62,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
      <Compile Include="Assets\scripts\backtomap.cs" />
+     <Compile Include="Assets\scripts\buttonClicks.cs" />
      <Compile Include="Assets\scripts\cameracontroller.cs" />
      <Compile Include="Assets\scripts\cameraFollowBehind.cs" />
      <Compile Include="Assets\scripts\cameramovement.cs" />
