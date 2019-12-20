@@ -4,7 +4,12 @@ I originally created this game for my class on Unity 3D Programming and User Int
 
 The game is mainly a 2D platformer, with a 3D element for the level map. It's based on the premise of two friends (Square and Circle) working together to find a third friend (Triangle), who has been lost somewhere on this island. But it's a perilous journey as the two make their way across a variety of different terrains to get to where their friend is.
 
-This game can be played with one or two players. On the map, only Square can control movement, using W, A, S, and D. W moves forward, S moves backward, and A and D rotate left and right, respectively. Circle will follow behind. Once players have entered the area that moves to the next level, indicated by the red cube, both players can then move. Square still uses W, A, and D, for jump, left, and right. Circle uses the arrow keys for movement. Both players must make their way together to the end of the level. If either player falls into the water or gets stuck off-camera to the left, they fail the level and must start over or return to the map.
+### Instructions
+This game can be played with one or two players.
+
+On the map, only Square can control movement, using W, A, S, and D. W moves forward, S moves backward, and A and D rotate left and right, respectively. Circle will follow behind.
+
+Once players have entered the area that moves to the next level, indicated by the red cube, both characters can then move. Square still uses W, A, and D, for jump, left, and right. Circle uses the arrow keys for movement. Both players must make their way together to the end of the level. If either player falls into the water or gets stuck off-camera to the left, they fail the level and must start over or return to the map.
 
 Go to [this link](https://selenaqian.github.io/habitat-hoppers-game/) to play, and good luck!
 
